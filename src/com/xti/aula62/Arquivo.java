@@ -1,4 +1,4 @@
-package com.algaworks.aula62;
+package com.xti.aula62;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

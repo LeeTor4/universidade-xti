@@ -1,4 +1,4 @@
-package com.algaworks.aula66;
+package com.xti.aula66;
 
 import java.nio.file.DirectoryIteratorException;
 import java.nio.file.DirectoryStream;
