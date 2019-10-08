@@ -1,4 +1,4 @@
-package com.algaworks.aula93;
+package com.xti.aula93;
 
 public class PingPongRunnable implements Runnable{
 	
