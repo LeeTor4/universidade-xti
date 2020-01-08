@@ -36,7 +36,7 @@ public class Arquivo {
 	
 	public static List<String> capturaNovoArquivo(){
 		List<String> lista = new ArrayList<String>();
-		Path path = Paths.get("C:/Users/flaragao/Documents/XTI/ArquivoNovo.txt");
+		Path path = Paths.get("C:/Users/flaragao/Documents/XTI/arquivoSped201909.txt");
 		if(Files.exists(path) ==true) {
 			try(BufferedReader reader = Files.newBufferedReader(path,utf8)) {
 				String line = null;
@@ -50,6 +50,8 @@ public class Arquivo {
 			}catch(IOException e) {
 				e.printStackTrace();
 			}	
+		}else {
+			armazenar(capturaArquivoSped(),0);
 		}
 		
 		return lista;
@@ -94,7 +96,7 @@ public class Arquivo {
 	
 	public static List<String> capturaArquivoSped(){
 		List<String> lista = new ArrayList<String>();
-		Path path = Paths.get("C:/Users/flaragao/Documents/XTI/arquivoSped.txt");
+		Path path = Paths.get("C:/Users/flaragao/Documents/XTI/arquivoSped201906.txt");
 		try(BufferedReader reader = Files.newBufferedReader(path,utf8)) {
 			String line = null;						
 			while((line = reader.readLine()) != null) {			
@@ -131,7 +133,7 @@ public class Arquivo {
 	public static void main(String[] args) {
 		armazenar(produtosNovos(), totLinhaSistema());				
 	
-	   //armazenar(capturaArquivoSped(),0);
+	  
 	} 
 
 }
