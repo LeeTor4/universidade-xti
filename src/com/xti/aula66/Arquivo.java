@@ -18,24 +18,18 @@ public class Arquivo {
 	
 	public static void main(String[] args) {
 		
-		Path dir = Paths.get("C:/Users/flaragao/Documents/SPED2015_REPROC/");
+		Path dir = Paths.get("C:/Users/flaragao/Documents/FARMACIA-LOJA03/SPED/2019");
 
 		/*LISTAR O CONTEÚDO*/
 		try (DirectoryStream<Path> stream =  Files.newDirectoryStream(dir)){
 			
-			for(Path path : stream) {
-				
+			for(Path path : stream) {				
 				//System.out.println(path.toAbsolutePath().toString());
 				captura(path.toAbsolutePath().toString());
-				/*for (int i = 0; i < captura(path.toAbsolutePath().toString()).size(); i++) {
-					
-					if (i == 4) {
-						System.out.println(captura(path.toAbsolutePath().toString()).get(i));
-					}
-	
-				}*/
-				System.out.println(captura(path.toAbsolutePath().toString()));
-			}
+				//System.out.println(captura(path.toAbsolutePath().toString()));
+				 System.out.println(captura(path.toAbsolutePath().toString()));		
+				
+			} 
 			
 			
 		}catch(Exception e) {
@@ -45,27 +39,57 @@ public class Arquivo {
 		
 	}
 	
-	public static List<String> captura(String caminho){
-		List<String> lista = new ArrayList<String>();
+	public static String captura(String caminho){
+		//List<String> lista = new ArrayList<String>();
+		String ret = "";
 		Path path = Paths.get(caminho);
 		try(BufferedReader reader = Files.newBufferedReader(path,utf8)) {
 			
 			String line = null;
 			while((line = reader.readLine()) != null) {
 				
-				if(line.contains("|0000|") || line.contains("|0190|")
-						 && !line.contains("|9900|") && !line.contains("|E116|")) {
-				//	System.out.println(line.toString());	
-					String[] dados = line.split("\\|");
-					lista = Arrays.asList(dados);					
-				}				
+				/*if(line.contains("|0000|")
+						  && !line.contains("|9900|") && !line.contains("|E116|")) {
+				 	//System.out.println(line.toString());	
+				 	//lista.add(line.toString());
+					ret += line.toString();
+								
+				}*/
+				/*if(line.contains("|0190|")
+						  && !line.contains("|9900|") && !line.contains("|E116|")) {
+				 	//System.out.println(line.toString());	
+				 	//lista.add(line.toString());
+					ret += line.toString();
+								
+				}*/
+				/*if(line.contains("|0200|")
+						  && !line.contains("|9900|") && !line.contains("|E116|")) {
+				 	//System.out.println(line.toString());	
+				 	//lista.add(line.toString());
+					ret += line.toString();
+								
+				}*/
+				if(line.contains("|C100|")
+						  && !line.contains("|9900|") && !line.contains("|E116|")) {
+				 	//System.out.println(line.toString());	
+				 	//lista.add(line.toString());
+					ret += line.toString();
+								
+				}
+				if(line.contains("|C170|")
+						  && !line.contains("|9900|") && !line.contains("|E116|")) {
+				 	//System.out.println(line.toString());	
+				 	//lista.add(line.toString());
+					ret += line.toString();
+								
+				}
 			}
 					
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
 		
-		return lista;
+		return ret;
 	}
 	
 	
